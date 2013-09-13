@@ -34,21 +34,32 @@ void printarray (T *a, const int n)
 	cout << endl;
 }
 
+template <class T>
+void loadArray( T *a, const int n)
+{
+    for( int i = 0; i < n; i++ )
+    {
+        cin >> a[i];
+    }
+    cin.ignore(); //will need this for strings
+}
+
 int main()
 {
 	const int n1 = 5, n2 = 7, n3 = 6;
-	int a[n1] = {2, 4, 6, 8, 10};
-	float b[n2] = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7};
-	char c[n3] = "HELLO";
+	int a[n1];
+	float b[n2];
+	char c[n3];
 
-	cout <<"the integer array" << endl;
-	printarray(a, n1);
+	cout << "Enter the integer array" << endl;
+	loadArray(a, n1);
 
-	cout <<"the float array" << endl;
-	printarray(b,n2);
+	cout << "Enter the float array" << endl;
+	loadArray(b,n2);
 
-	cout <<"the string is" << endl;
-	printarray(c,n3);
+	cout << "Enter a string" << endl;
+	loadArray(c,n3);
+
 	return 0;
 }
 
