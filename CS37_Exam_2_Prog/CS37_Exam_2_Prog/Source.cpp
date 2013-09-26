@@ -20,6 +20,7 @@ using namespace std;
 		Once BEFORE the text file is saved
 		Once AFTER the array is retrieved from the text file
 	Each Array should be saved to a separate text file
+		Seth gave a hint in class that the first parameter in the ifstream/ofstream is a string param
 	You will also need to show all three text files which you can do from any text editor when submitting this program
 */
 
