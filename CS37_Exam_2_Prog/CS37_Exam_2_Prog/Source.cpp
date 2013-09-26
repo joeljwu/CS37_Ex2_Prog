@@ -49,7 +49,17 @@ void printarray (T *a, const int n)
 template <class T>
 void findSmalls(T *a, const int n)
 {
+	//T big = a[0];
+        //T small = a[0];
 	//
+        //for(int i = 1; i < n; i++)
+        //{
+        //    if(a[i] > big)
+        //        big = a[i];
+        //    if(a[i] < small)
+        //        small = a[i];
+        //}
+        //return big - small;
 }
 
 //template to sort array
