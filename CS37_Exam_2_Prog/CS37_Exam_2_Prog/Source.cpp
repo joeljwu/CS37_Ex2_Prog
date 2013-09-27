@@ -93,36 +93,24 @@ int main()
 	cout << "Enter the integer array" << endl;
 	loadArray(a, n1);
 
-	cout << "Enter the float array" << endl;
-	loadArray(b,n2);
+	//cout << "Enter the float array" << endl;
+	//loadArray(b,n2);
 
-	cout << "Enter a string" << endl;
-	loadArray(c,n3);
+	//cout << "Enter a string" << endl;
+	//loadArray(c,n3);
 
 	//Similar calls should be used to print out data
     //findSmalls(a, n1);
-    //findSmalls(b, n2);
-    //findSmalls(c, n3);
 
     //sort(a, n1);
-    //sort(b, n2);
-    //sort(c, n3);
 
     //printArray(a, n1);
-    //printArray(b, n2);
-    //printArray(c, n2);
 
     //save(a, n1); //This is not right as-is, only a generalization
-    //save(b, n2);
-    //save(c, n3);
 
     //retrieve(a, n1);
-    //retrieve(b, n2);
-    //retrieve(c, n3);
 
     //printArray(a, n1);
-    //printArray(b, n2);
-    //printArray(c, n3);
 
 	return 0;
 }
