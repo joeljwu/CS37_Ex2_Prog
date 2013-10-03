@@ -1,0 +1,141 @@
+//CS37 Homework #2
+//Joel Wu
+//Raul Gutierrez
+//Justine Gee
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+template <class T>
+void loadArray(T *a, const int n) {
+	for (int i=0; i<n; i++) {
+		cin >> a[i];
+	}
+}
+
+template <class T>
+void smallestTwo(T *a, const int n) {
+	T smallest = a[0];
+	T secondSmallest = a[1];
+	if (smallest > secondSmallest) {
+		smallest = a[1];
+		secondSmallest = a[0];
+	}
+	for (int i=2; i<n; i++) {
+		if (a[i] < smallest) {
+			secondSmallest = smallest;
+			smallest = a[i];
+		} else if (a[i] < secondSmallest) {
+			secondSmallest = a[i];
+		}
+	}
+	cout << "The smallest is: " << smallest << endl;
+	cout << "The second smallest is: " << secondSmallest << endl;
+}
+
+template <class T>
+void sortDescending(T *a, const int n) {
+	T temp;
+	for (int i=0; i<n-1; i++) {
+		for (int j=0; j<n-1; j++) {
+			if (a[j] < a[j+1]) {
+				temp = a[j];
+				a[j] = a[j+1];
+				a[j+1] = temp;
+			}
+		}
+	}
+	for (int i=0; i<n; i++) {
+		cout << a[i] << ' ';
+	}
+	cout << endl;
+}
+
+template <class T>
+void saveFile(char *f, T *a, const int n) {
+	ofstream outfile(f, ios::out);
+	for (int i = 0; i < n; i++)	{
+		outfile << a[i] << ' ' ;
+	}
+	outfile.close();
+}
+
+template <class T>
+void loadFile(char *f, T *a, const int n) {
+	ifstream infile(f, ios::in);
+	for (int i = 0; i < n; i++)
+	{
+		infile >> a[i];
+	}
+	infile.close();
+	for (int i=0; i<n; i++) {
+		cout << a[i] << ' ';
+	}
+	cout << endl;
+}
+
+int main() {
+	const int IA_length = 5, FA_length = 7, CA_length = 5;
+	int intArray[IA_length];
+	float floatArray[FA_length];
+	char charArray[CA_length];
+	char IA_file[25] = "g:\\CS37\\intArray.dat", FA_file[25] = "g:\\CS37\\floatArray.dat", CA_file[25] = "g:\\CS37\\charArray.dat";
+
+	cout << "Enter data for the int array:" << endl;
+	loadArray(intArray,IA_length);
+	smallestTwo(intArray,IA_length);
+	sortDescending(intArray,IA_length);
+	saveFile(IA_file,intArray,IA_length);
+	loadFile(IA_file,intArray,IA_length);
+	cout << "Enter data for the float array:" << endl;
+	loadArray(floatArray,FA_length);
+	smallestTwo(floatArray,FA_length);
+	sortDescending(floatArray,FA_length);
+	saveFile(FA_file,floatArray,FA_length);
+	loadFile(FA_file,floatArray,FA_length);
+	cout << "Enter data for the char array:" << endl;
+	loadArray(charArray,CA_length);
+	smallestTwo(charArray,CA_length);
+	sortDescending(charArray,CA_length);
+	saveFile(CA_file,charArray,CA_length);
+	loadFile(CA_file,charArray,CA_length);
+	system("PAUSE");
+	return 0;
+}
+
+/*
+Enter data for the int array:
+2
+4
+6
+8
+10
+The smallest is: 2
+The second smallest is: 4
+10 8 6 4 2
+10 8 6 4 2
+Enter data for the float array:
+1.1
+2.2
+3.3
+4.4
+5.5
+6.6
+7.7
+The smallest is: 1.1
+The second smallest is: 2.2
+7.7 6.6 5.5 4.4 3.3 2.2 1.1
+7.7 6.6 5.5 4.4 3.3 2.2 1.1
+Enter data for the char array:
+H
+E
+L
+L
+O
+The smallest is: E
+The second smallest is: H
+O L L H E
+O L L H E
+Press any key to continue . . .
+*/
